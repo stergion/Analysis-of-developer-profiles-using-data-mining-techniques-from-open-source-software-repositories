@@ -1,0 +1,23 @@
+{
+  "AsciiDoc": [".adoc", ".asciidoc"],
+  "BBCode": [".bb", ".bbcode"],
+  "DocBook": [".dbk", ".docbook"],
+  "HTML": [".html", ".htm", ".xhtml", ".xht"],
+  "JSON": [".json"],
+  "LaTeX": [".tex", ".ltx", ".sty", ".cls"],
+  "Markdown": [".md", ".MD", ".markdown", ".mdown", ".mkdn", ".mkd", ".Rmd"],
+  "MDX": [".mdx"],
+  "ODT": [".odt", ".ott", ".fodt"],
+  "Org-mode": [".org"],
+  "POD": [".pod"],
+  "RAML": [".raml"],
+  "RON": [".ron"],
+  "SGML": [".sgml", ".dtd"],
+  "Textile": [".textile"],
+  "Toml": [".toml"],
+  "Wiki": [".wiki", ".mediawiki", ".creole"],
+  "XAML": [".xaml"],
+  "XML": [".xml", ".xsl", ".xsd", ".xslt", ".rss"],
+  "YAML": [".yml", ".yaml"],
+  "reStructuredText": [".rst", ".rest"]
+}

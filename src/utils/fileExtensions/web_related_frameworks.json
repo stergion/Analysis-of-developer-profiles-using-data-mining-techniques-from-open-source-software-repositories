@@ -1,0 +1,21 @@
+{
+  "Apache Velocity": [".vm", ".vtl"],
+  "Astro": [".astro"],
+  "ASP.NET": [".aspx", ".cshtml", ".vbhtml", ".razor"],
+  "Ember": [".hbs", ".handlebars"],
+  "GraphQL": [".graphql", ".gql", ".graphqls"],
+  "HTML": [".html"],
+  "Jinja": [".jinja", ".jinja2", ".j2"],
+  "Less": [".less"],
+  "Nunjucks": [".njk", ".nunjucks"],
+  "Phoenix": [".heex"],
+  "PostCSS": [".pcss", ".postcss"],
+  "Prisma": [".prisma"],
+  "Pug": [".pug"],
+  "React": [".jsx", ".tsx"],
+  "Sass": [".scss", ".sass"],
+  "Svelte": [".svelte"],
+  "Stylus": [".styl"],
+  "Twig": [".twig"],
+  "Vue": [".vue"]
+}
