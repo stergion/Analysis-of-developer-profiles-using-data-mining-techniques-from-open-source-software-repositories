@@ -1,4 +1,4 @@
-# Diploma-Thesis-Stergios-Nanos-backend
+# Analysis of developer profiles using data mining techniques from open source software repositories
 The backend part of the Developer's profile application
 
 A backend server developed as part of Stergios Nanos' diploma thesis "Analysis of developer profiles using data mining techniques from open source software repositories"
