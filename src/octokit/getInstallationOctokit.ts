@@ -21,7 +21,7 @@ export default async function getInstallationOctokit(
 
         case "number":
             // if installationId is undefined then loginOrInstallationId is not a string.
-            // sto loginOrInstallationId is a number.
+            // so loginOrInstallationId is a number.
             // if installationId is defined then it is a number and loginOrInstallationId is a string
             installationId = (installationId ?? loginOrInstallationId) as number;
             break;
