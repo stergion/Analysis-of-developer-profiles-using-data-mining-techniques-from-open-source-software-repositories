@@ -1,9 +1,11 @@
 import express, { Request, Response } from "express";
-import { updateUser } from "../controllers/installationController.js";
+
+import { createUser, deleteUser, updateUser } from "../controllers/installationController.js";
+import getInstallationOctokit from "../octokit/getInstallationOctokit.js";
 import { computeUserMetrics } from "../controllers/metricsController.js";
 import { validateUpdateContributions, validateUpdateMetrics } from "../middleware/validation/validator.js";
+
 import db from "../models/index.js";
-import getInstallationOctokit from "../octokit/getInstallationOctokit.js";
 import logger from "../utils/logger/logger.js";
 
 const log = logger.default;
@@ -14,6 +16,39 @@ const router = express.Router();
 router.route("/test")
     .post((req: Request, res: Response) => {
         res.end("Success!!!");
+    });
+
+router.route("/users/:login")
+    .post(async (req: Request, res: Response) => {
+      const octokit = await getInstallationOctokit(req.params.login);
+  
+      try {
+        await createUser(octokit, req.params.login);
+        res.end(JSON.stringify({}));
+      } catch (error) {
+        console.error("Error creating user.", { login: req.params.login });
+        res.status(500).end(JSON.stringify({ error }));
+      }
+    })
+    .delete(async (req: Request, res: Response) => {
+      try {
+        await deleteUser(req.params.login);
+        res.end(JSON.stringify({}));
+      } catch (error) {
+        console.error("Error creating user.", { login: req.params.login });
+        res.status(500).end(JSON.stringify({ error }));
+      }
+    })
+    .patch(async (req: Request, res: Response) => {
+      const octokit = await getInstallationOctokit(req.params.login);
+  
+      try {
+        await updateUser(octokit, req.params.login);
+        res.end(JSON.stringify({}));
+      } catch (error) {
+        console.error("Error creating user.", { login: req.params.login });
+        res.status(500).end(JSON.stringify({ error }));
+      }
     });
 
 router.route("/contributions/update")

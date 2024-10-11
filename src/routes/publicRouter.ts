@@ -1,9 +1,6 @@
 import express, { Request, Response } from "express";
 import jwt from "jsonwebtoken";
 
-import { createUser, deleteUser, updateUser } from "../controllers/installationController.js";
-import getInstallationOctokit from "../octokit/getInstallationOctokit.js";
-
 import db from "../models/index.js";
 import { computeUserMetrics } from "../controllers/metricsController.js";
 import fetch from "node-fetch";
@@ -84,40 +81,6 @@ router.route("/users/:login/role")
     const roles = await response.json();
 
     res.send(roles);
-  });
-
-
-router.route("/users/:login")
-  .post(async (req: Request, res: Response) => {
-    const octokit = await getInstallationOctokit(req.params.login);
-
-    try {
-      await createUser(octokit, req.params.login);
-      res.end(JSON.stringify({}));
-    } catch (error) {
-      console.error("Error creating user.", { login: req.params.login });
-      res.status(500).end(JSON.stringify({ error }));
-    }
-  })
-  .delete(async (req: Request, res: Response) => {
-    try {
-      await deleteUser(req.params.login);
-      res.end(JSON.stringify({}));
-    } catch (error) {
-      console.error("Error creating user.", { login: req.params.login });
-      res.status(500).end(JSON.stringify({ error }));
-    }
-  })
-  .patch(async (req: Request, res: Response) => {
-    const octokit = await getInstallationOctokit(req.params.login);
-
-    try {
-      await updateUser(octokit, req.params.login);
-      res.end(JSON.stringify({}));
-    } catch (error) {
-      console.error("Error creating user.", { login: req.params.login });
-      res.status(500).end(JSON.stringify({ error }));
-    }
   });
 // .get()
 
