@@ -40,8 +40,3 @@ DB_USER
 DB_PASS
 ```
 
-## Known Issues
-There is a bug with the [octokit/plugin-paginate-graphql](https://github.com/octokit/plugin-paginate-graphql.js), as reported in the issue [#58](https://github.com/octokit/plugin-paginate-graphql.js/issues/58).
-
-You can manually implement the fix proposed in the pull request [#59](https://github.com/octokit/plugin-paginate-graphql.js/pull/59), until the package is updated.
-
